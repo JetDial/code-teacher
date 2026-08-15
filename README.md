@@ -55,7 +55,7 @@ Open `index.html` in any browser and start learning.
 
 | Area | What you get |
 |---|---|
-| **Tracks** | HTML (10 lessons), CSS (10), JavaScript (13, incl. regex), TypeScript (8), Python (12), SQL (8), Build a Website (9, incl. security), Testing (4), Data Structures & Algorithms (6), AI & Neural Nets (8) — 88 lessons total |
+| **Tracks** | HTML (10 lessons), CSS (10), JavaScript (13, incl. regex), TypeScript (8), Python (12), **Plain (8, incl. a from-scratch neural net)**, SQL (8), Build a Website (9, incl. security), Testing (4), Data Structures & Algorithms (6), AI & Neural Nets (8) — 96 lessons total |
 | **Practice** | Auto-graded exercises (JS, Python, SQL): write code, Run tests, get judged by real assertions |
 | **Review** | Spaced repetition of every quiz question you miss (1 → 3 → 7 days, graduate at 3 correct) |
 | **Journey** | A guided 15-milestone roadmap through everything, with your position on the map |
@@ -80,7 +80,9 @@ offline from the file itself.
 The only features that need internet are the heavier language runtimes, each fetched from a CDN
 on first Run: **Python** (Pyodide, ~10 MB), **SQL** (sql.js, ~1 MB) and **TypeScript** (the real
 compiler, ~8 MB). When offline, those lessons still show the expected output of every example —
-and HTML/CSS/JS editors work fully offline always.
+and HTML/CSS/JS editors work fully offline always. So does **Plain**: it is dependency-free
+JavaScript vendored straight into the site (`js/plain/`), so its Run button needs nothing from
+the network, ever — first run or hundredth.
 
 ## Project structure
 
@@ -95,6 +97,7 @@ Code Teacher/
     ├── css.js          CSS track lessons
     ├── javascript.js   JavaScript track lessons
     ├── python.js       Python track lessons
+    ├── plain.js        Plain track lessons (runs via js/plain, no fetch)
     ├── typescript.js   TypeScript track (compiles live via the real tsc)
     ├── testing.js      Testing track
     ├── dsa.js          Data Structures & Algorithms track
@@ -109,6 +112,10 @@ Code Teacher/
     ├── projects.js     All guided projects
     ├── generator.js    Challenge generator templates & themes
     └── reference.js    Cheat sheets, debugging guide + glossary
+js/plain/                The Plain language itself, vendored in whole
+├── run.js                 the bridge: window.CT_PLAIN_RUN/CHECK/SAY
+├── src/                    parser, interpreter, translator (unmodified)
+└── engines/                game, store, data engines Plain's lessons use
 ```
 
 ## Adding your own content
@@ -119,17 +126,19 @@ data file.
 
 ## The Plain track
 
-Eight lessons and five projects for **Plain**, the sentence-shaped language
-in this collection - and the only track whose runtime is not fetched from
-anywhere. Plain is dependency-free JavaScript, so the whole language sits in
-`js/plain` and every Run works offline and instantly.
+Eight lessons and five projects for **Plain**, a sentence-shaped language — and the only track
+whose runtime is not fetched from anywhere. Plain is dependency-free JavaScript, so the whole
+language sits in `js/plain/` and every Run works offline and instantly: no Pyodide, no wasm, no
+CDN round-trip, not even on the very first click.
 
-It goes from `show "Hello!"` to a **neural network written from nothing** -
-a squash, a hidden layer, and backpropagation explained as what it actually
-is: blame passed backwards along the weight it came forward on. It trains on
-XOR in the page and gets all four answers right.
+It goes from `show "Hello!"` to a **neural network written from nothing** — a squash, a hidden
+layer, and backpropagation explained as what it actually is: blame passed backwards along the
+weight it came forward on. It trains on XOR live in the page and gets all four answers right,
+every time.
 
-Along the way: your own kinds of thing, one program written out in eleven
-other programming languages, Plain read in six human languages, and lists
-that do not exist until you ask for them.
+Along the way: your own kinds of thing (Plain's classes), one program written out in eleven other
+programming languages, the same program read back in six human languages, and lists that do not
+exist until you ask for them. Five buildable projects follow, each with step-by-step instructions
+and a runnable solution — a self-marking quiz, a word counter, a binary-search guessing game, a
+2D catching game, and retraining the neural net on a different task.
 
