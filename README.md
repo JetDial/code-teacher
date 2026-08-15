@@ -1,7 +1,12 @@
 # Code Teacher
 
 An interactive website that teaches you how to code — no account, no install, no internet required.
-Open `index.html` in any browser and start learning.
+
+**Play it here: https://jetdial.github.io/code-teacher/**
+
+Or clone the repository and open `index.html` in any browser — every runtime on the
+site (Python, SQL, JavaScript, the neural net) runs inside the page, so there is
+nothing to install and no server to start. The published site is the same files.
 
 ---
 
