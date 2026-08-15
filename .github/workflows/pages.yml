@@ -1,0 +1,50 @@
+# Publish the site to GitHub Pages. Everything here is static -- HTML, CSS and
+# ES modules with no build step -- so the repository root is what gets served.
+#
+# The runtimes (Python, SQL, the neural net, Plain) all run IN THE BROWSER, so
+# a static host is enough; nothing here needs a server of its own.
+name: Publish the site
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time; never cancel a running one half-published.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Pages runs Jekyll unless told otherwise, and Jekyll drops files and
+      # folders whose names begin with an underscore. Nothing here starts with
+      # one today, but a future js/_helpers would vanish silently.
+      - name: Stop Pages from running Jekyll over the site
+        run: touch .nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
