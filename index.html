@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code Teacher — Learn to Code, Step by Step</title>
+<meta name="description" content="Learn HTML, CSS, JavaScript and Python with interactive lessons, live code editors, quizzes and guided projects. Works offline, remembers your progress.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🎓</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#/">
+    <span class="brand-icon">&lt;/&gt;</span>
+    <span class="brand-name">Code&nbsp;Teacher</span>
+  </a>
+  <nav class="topnav" id="topnav">
+    <a href="#/" data-nav="home">Home</a>
+    <a href="#/practice" data-nav="practice">Practice</a>
+    <a href="#/projects" data-nav="projects">Projects</a>
+    <a href="#/blueprints" data-nav="blueprints">Blueprints</a>
+    <a href="#/toolbox" data-nav="toolbox">Toolbox</a>
+    <a href="#/atlas" data-nav="atlas">Languages</a>
+    <a href="#/playground" data-nav="playground">Playground</a>
+    <a href="#/reference" data-nav="reference">Reference</a>
+  </nav>
+  <div class="topbar-tools">
+    <div class="search-wrap">
+      <input id="search-input" type="search" placeholder="Search lessons &amp; projects…" autocomplete="off" aria-label="Search lessons and projects">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+    <button id="theme-toggle" class="icon-btn" title="Toggle dark / light mode" aria-label="Toggle dark or light mode">🌙</button>
+  </div>
+</header>
+
+<main id="app" tabindex="-1"></main>
+
+<footer class="site-footer">
+  <p>Code Teacher — a self-contained site for learning to code. Your progress is saved in this browser only.</p>
+  <p class="footer-links">
+    <a href="#/assessment">Retake skill assessment</a>
+    <span aria-hidden="true">·</span>
+    <a href="#" id="backup-progress">Backup progress</a>
+    <span aria-hidden="true">·</span>
+    <a href="#" id="restore-progress">Restore</a>
+    <span aria-hidden="true">·</span>
+    <a href="#/" id="reset-progress">Reset all progress</a>
+  </p>
+  <input type="file" id="restore-file" accept=".json,application/json" hidden>
+</footer>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="js/data/html.js"></script>
+<script src="js/data/css.js"></script>
+<script src="js/data/javascript.js"></script>
+<script src="js/data/typescript.js"></script>
+<script src="js/data/python.js"></script>
+<script src="js/data/plain.js"></script>
+<script type="module" src="js/plain/run.js"></script>
+<script src="js/data/website.js"></script>
+<script src="js/data/sql.js"></script>
+<script src="js/data/testing.js"></script>
+<script src="js/data/dsa.js"></script>
+<script src="js/data/ai.js"></script>
+<script src="js/data/atlas.js"></script>
+<script src="js/data/encyclopedia.js"></script>
+<script src="js/data/blueprints.js"></script>
+<script src="js/data/toolbox.js"></script>
+<script src="js/data/projects.js"></script>
+<script src="js/data/practice.js"></script>
+<script src="js/data/generator.js"></script>
+<script src="js/data/reference.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
